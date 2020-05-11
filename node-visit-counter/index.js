@@ -2,7 +2,9 @@ const express = require('express');
 const redis = require('redis');
 
 const app = express();
-const redis_client = redis.createClient();
+const redis_client = redis.createClient({
+    host:"redis-server"
+});
 
 redis_client.set('visits', 0);
 
