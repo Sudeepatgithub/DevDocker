@@ -1,3 +1,18 @@
+docker build -t sudeep51/react-nginx .
+
+docker run -p 8080:80 sudeep51/react-nginx
+
+________________________________
+
+docker-compose up --build
+
+_______________________________
+
+
+docker run -it -p 3000:3000 -v /usr/app/node_modules -v $(pwd):/use/app -f Dockerfile.dev
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
