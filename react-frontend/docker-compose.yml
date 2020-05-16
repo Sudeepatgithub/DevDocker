@@ -1,6 +1,7 @@
 version: '3'
 services:
     web-app:
+        stdin_open: true
         build: 
             context: .
             dockerfile: "Dockerfile.dev"
@@ -9,3 +10,11 @@ services:
         volumes: 
             - /usr/app/node_modules
             - ./:/usr/app
+    tests:
+        build: 
+            context: .
+            dockerfile: "Dockerfile.dev"
+        volumes: 
+            - /usr/app/node_modules
+            - ./:/usr/app
+        command: ["npm", "run", "test"]
