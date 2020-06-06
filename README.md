@@ -1,3 +1,3 @@
 # DevDocker
 Learning and Building Dockerfiles
-# docker-react
+Commands to run each docker project in Project's Readme.md files.
