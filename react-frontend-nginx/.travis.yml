@@ -1,0 +1,23 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t sudeep51/react-frontend -f Dockerfile.dev .
+    -
+language: generic
+script: 
+    - docker run -e CI=true sudeep51/react-frontend npm run test -- --coverage
+
+deploy:
+    provider: elasticbeanstalk
+    access-key-id: $AWS_ACCESS_KEY
+    secret-access-key: $AWS_SECRET_KEY
+    region: "eu-west-1"
+    app: "docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-eu-west-1-135118745174"
+    bucket_path: "docker-react"
+    on:
+        branch: master
+
+
